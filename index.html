@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input style="margin: 15px;" type="text" id="inputNumber" oninput="findEvenOdd()" placeholder="Enter Your Number :">
+
+    <div id="evenBlock"  style="margin: 10px; border-radius: 20px; padding: 15px; background-color: blueviolet;">
+        <h3 style="margin: 0; color: white;">Even Numbers Are :</h3>
+        <span id="displayEven"></span>
+    </div>
+
+    <div  id="oddBlock"   style="margin: 10px; border-radius: 20px; padding: 15px; background-color: rgb(29, 221, 71);">
+        <h3  style="margin: 0; color: white;">Odd Numbers Are :</h3>
+        <span  id="displayOdd"></span>
+    </div>
+
+
+    <script>
+
+    
+        
+        function findEvenOdd(){
+            var n = document.getElementById("inputNumber").value;
+            console.log(n.length)
+            if(n.length != 0){
+                document.getElementById('evenBlock').style.display = 'block'
+                document.getElementById('oddBlock').style.display = 'block'
+                var even = "";
+                var odd = "";
+                
+                for (let index = 0; index <= n; index++) {
+
+                    var x = index/2;
+                    var y = parseInt(index/2);
+                    
+                    if(x === y){
+                        even+=(index+", ");
+
+                    }
+                    else{
+                        odd+=(index+", ");
+                    }
+                }
+                document.getElementById('displayEven').innerHTML = even.slice(0, even.length-2);
+                document.getElementById('displayOdd').innerHTML = odd.slice(0, odd.length-2);
+            }
+            else{
+                document.getElementById('evenBlock').style.display = 'none'
+                document.getElementById('oddBlock').style.display = 'none'
+                document.getElementById('displayEven').innerHTML = "";
+                document.getElementById('displayOdd').innerHTML = "";
+
+            }      
+
+        }
+        findEvenOdd();
+    </script>
+</body>
+</html>
